@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Your Recommendations</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 {{ genre }} Movie Recommendations</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <div class="results-meta">
+            <span>Showing <strong>{{ count }}</strong> movie{{ 's' if count > 1 else '' }}</span>
+            <span>Requested: {{ requested }}</span>
+        </div>
+        
+        <div class="movie-list">
+            {% for movie in movies %}
+                <div class="movie-item">
+                    <span class="movie-number">{{ loop.index }}</span>
+                    <span class="movie-name">{{ movie }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="actions">
+            <a href="/recommend" class="btn">🔄 Get More</a>
+            <a href="/" class="btn btn-secondary">🏠 Home</a>
+        </div>
+    </div>
+</body>
+</html>
