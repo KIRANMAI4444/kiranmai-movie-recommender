@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 {{ site_name }}</h1>
+            <p class="subtitle">{{ welcome_message }}</p>
+        </header>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Menu Cards -->
+        <div class="menu-grid">
+            <a href="/recommend" class="menu-card">
+                <div class="icon">🎯</div>
+                <h3>Get Recommendations</h3>
+                <p>Discover movies by genre</p>
+            </a>
+            
+            <a href="/add" class="menu-card">
+                <div class="icon">➕</div>
+                <h3>Add a Movie</h3>
+                <p>Expand the collection</p>
+            </a>
+            
+            <a href="/search" class="menu-card">
+                <div class="icon">🔍</div>
+                <h3>Search Movies</h3>
+                <p>Find movies by name</p>
+            </a>
+            
+            <a href="/all" class="menu-card">
+                <div class="icon">📚</div>
+                <h3>View All Movies</h3>
+                <p>See the complete collection</p>
+            </a>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">{{ genre_list|length }}</span>
+                <span class="stat-label">Genres</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ total_movies }}</span>
+                <span class="stat-label">Movies</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; {{ year }} {{ site_name }}. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
