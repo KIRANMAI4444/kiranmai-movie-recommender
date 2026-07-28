@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 All Movies</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 All Movies in Database</h1>
+        
+        <div class="results-meta">
+            <span>Total Genres: <strong>{{ movies_list|length }}</strong></span>
+            <span>Total Movies: <strong>{{ movies_list.values()|sum(attribute='length') }}</strong></span>
+        </div>
+        
+        {% for genre, movies in movies_list.items() %}
+            <div class="genre-section">
+                <h2 class="genre-title">{{ genre }}</h2>
+                <div class="genre-movies">
+                    {% for movie in movies %}
+                        <span class="movie-tag">{{ movie }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        
+        <div class="actions">
+            <a href="/" class="btn btn-secondary">🏠 Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
