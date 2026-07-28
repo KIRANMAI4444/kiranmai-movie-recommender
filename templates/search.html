@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Search Movies</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Search for a Movie</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <div class="form-card">
+            <form method="POST" action="/search">
+                <div class="form-group">
+                    <label for="search_term">Enter Movie Name:</label>
+                    <input type="text" 
+                           name="search_term" 
+                           id="search_term" 
+                           placeholder="e.g., Baahubali, RRR, Pushpa..."
+                           required>
+                </div>
+                
+                <button type="submit" class="btn">🔍 Search</button>
+            </form>
+        </div>
+        
+        <div class="actions">
+            <a href="/" class="btn btn-secondary">🏠 Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
