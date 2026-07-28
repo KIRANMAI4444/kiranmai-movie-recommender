@@ -145,7 +145,8 @@ def search_movie():
         if found_in:
             return render_template('search_results.html', 
                              search_term=search_term,
-                             found_in=found_in)
+                             found_in=found_in,
+                             movies_list=movies_list)
         else:
             flash(f"\nNo movie found with the name '{search_term}'")
             return redirect(url_for('search_movie'))
