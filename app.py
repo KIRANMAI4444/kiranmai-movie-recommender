@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify   #``````````````````````
 import random
+moives_list = {}
 
 app = Flask(__name__)   
 app.secret_key = 'your-secret-key-here-For flash messages'  # For flash messages
@@ -30,6 +31,8 @@ movies_list = {
 # ===== HOME PAGE =====
 @app.route('/')
 def home():
+    global movies_list
+    
     context = {
         'welcome_message': "Welcome to the Movie Recommendation System!!!!!",
         'genre_list': list(movies_list.keys()),
@@ -96,6 +99,7 @@ def get_recommendations():
 # ===== ADD MOVIE (Your add_new_movie function) =====
 @app.route('/add', methods=['GET', 'POST'])
 def add_new_movie():
+    global movies_list
     if request.method == 'POST':
         genre_name= request.form.get('genre')
 
@@ -120,7 +124,7 @@ def add_new_movie():
                 movies_list[matching_genre].append(movie_name)
                 flash(f'"{movie_name}" successfully added to {matching_genre}!')
         else:
-            flash(f'{matching_genre} Genre not found!')
+            flash(f'{genre_name} Genre not found!')
             return redirect(url_for('add_new_movie'))
 
         return redirect(url_for('add_new_movie'))
@@ -157,6 +161,11 @@ def search_movie():
 # ===== VIEW ALL MOVIES =====
 @app.route('/all')
 def view_all():
+    global movies_list
+    print("Movies in view_all:", movies_list)  # Debug
+    print("Total categories:", len(movies_list))
+    for category, movies in movies_list.items():
+        print(f"  {category}: {len(movies)} movies")
     return render_template('all_movies.html', movies_list=movies_list)
 
 if __name__ == '__main__':
