@@ -12,7 +12,7 @@
         
         <div class="results-meta">
             <span>Total Genres: <strong>{{ movies_list|length }}</strong></span>
-            <span>Total Movies: <strong>{{ movies_list.values()|sum(attribute='length') }}</strong></span>
+            <span>Total Movies: <strong>{{ movies_list.values()|map('length')|sum }}</strong></span>
         </div>
         
         {% for genre, movies in movies_list.items() %}
