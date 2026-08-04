@@ -6,6 +6,10 @@ A web-based movie recommendation system built with Flask that suggests Telugu mo
 ![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 
+## 🚀 Live Demo
+
+🔗 **View Live App:** [https://kiranmai-movie-recommender.onrender.com](https://kiranmai-movie-recommender.onrender.com)
+
 ---
 
 ## ✨ Features
@@ -35,28 +39,60 @@ A web-based movie recommendation system built with Flask that suggests Telugu mo
 
 ## 📁 Project Structure
 
-## 🚀 How to Run
+movie-recommender/
+├── app.py
+├── requirements.txt
+├── README.md
+├── Procfile
+├── templates/
+│ ├── index.html
+│ ├── recommend_form.html
+│ ├── recommendations.html
+│ ├── add_movie.html
+│ ├── search.html
+│ ├── search_results.html
+│ └── all_movies.html
+└── static/
+└── style.css
+
+
+---
+
+## 🚀 How to Run Locally
+
 1. Clone: `git clone https://github.com/KIRANMAI4444/kiramanai-movie-recommender.git`
 2. Install: `pip install -r requirements.txt`
 3. Run: `python app.py`
 4. Open: `http://127.0.0.1:5000`
 
+---
+
 ## 🎯 How to Use
+
 - **Get Recommendations**: Select genre → Choose count → Get movies
 - **Add Movie**: Select genre → Enter name → Add
 - **Search**: Type movie name → See results
 - **View All**: Browse complete collection
 
+---
+
 ## 📊 Genres Available
+
 Action, Adventure, Biopic, Comedy, Crime, Drama, Family, Patriotic, Historical, Horror, Musical, Mystery, Romance, Science Fiction, Sports, Thriller, War
 
+---
+
 ## 👩‍💻 Developer
+
 **Kiranmai** - Python Developer
 - GitHub: [KIRANMAI4444](https://github.com/KIRANMAI4444)
 
+---
+
 ## 📝 License
+
 MIT License
 
 ---
 
-Made by Kiranmai
+Made Kiranmai
